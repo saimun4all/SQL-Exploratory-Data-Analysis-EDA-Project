@@ -45,7 +45,7 @@ FROM `EDA.db`.gold_fact_sales
 WHERE order_number IS NOT NULL
 
 
-******* GENERATE REPORT THAT SHOWS ALL KEY METRICS OF THE BUSINESS *******
+******* GENERATE A REPORT THAT SHOWS ALL KEY METRICS OF THE BUSINESS *******
 
 SELECT
 	'Total Sales' AS measure_name,
@@ -76,7 +76,6 @@ SELECT
 	'Total Nr. Customers',
 	COUNT(DISTINCT customer_key)
 FROM `EDA.db`.gold_fact_sales;
-
 
 
 -- Sum of Sales across categories
