@@ -27,7 +27,7 @@ FROM
 GROUP BY category
 ORDER BY TotalProdCategory DESC;
 
--- What is the average costs in each category
+-- What is the average cost in each category
 SELECT
 	category,
 	ROUND(AVG(cost),2) AS AvgCost
@@ -35,6 +35,29 @@ FROM
 	`EDA.db`.gold_dim_products
 GROUP BY category
 ORDER BY AvgCost DESC;
+
+
+SELECT
+	p.category,
+	SUM(s.sales_amount) AS TotalRevenue
+FROM
+	`EDA.db`.gold_fact_sales s 
+LEFT JOIN `EDA.db`.gold_dim_products p
+ON s.product_key = p.product_key
+GROUP BY p.category
+ORDER BY TotalRevenue DESC;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
