@@ -67,6 +67,19 @@ GROUP BY
 ORDER BY TotalRevenue DESC;
 
 
+-- What is the distrubution of sold items across countries?
+
+SELECT
+	c.country,
+	SUM(s.quantity) AS TotalSoldItems
+FROM
+	`EDA.db`.gold_fact_sales s 
+LEFT JOIN `EDA.db`.gold_dim_customers c
+ON s.customer_key = c.customer_key
+GROUP BY
+	c.country
+ORDER BY TotalSoldItems DESC;
+
 
 
 
